@@ -1,23 +1,23 @@
-#crit-contracts
+# crit-contracts
 
 Deployer: [0x71d2506Dc153458F79FA9CF1adcE270ef3B04B46](https://etherscan.io/address/0x71d2506Dc153458F79FA9CF1adcE270ef3B04B46)
 
 Timelock: [0x22ef8c4b9855b0453e06a3cc6ccf314cbcea5773](https://etherscan.io/address/0x22ef8c4b9855b0453e06a3cc6ccf314cbcea5773)
 
-##Crit Token
+## Crit Token
 |     |      Contract Address |
 |-----------|:--------------:|
 | <b>Crit</b> | [0xf00ea2f3761a730f414aee6dfdc7857b6a3ef086](https://etherscan.io/address/0xf00ea2f3761a730f414aee6dfdc7857b6a3ef086)|
 
 
-##Vault 1 (Farm CRV)
+## Vault 1 (Farm CRV)
 | Vault    |      Contract Address |
 |-----------|:--------------:|
 | DAIVault | [0xebf05ada50a9ca64b362ef5268c5b0b666d62701](https://etherscan.io/address/0xebf05ada50a9ca64b362ef5268c5b0b666d62701)|
 | USDCVault | [0xd7166baf4081da6415d6df4d597c97040b6adf67](https://etherscan.io/address/0xd7166baf4081da6415d6df4d597c97040b6adf67)|
 | USDTVault | [0xa3be6a788ebbbb00675de7bfa4126c86993b6865](https://etherscan.io/address/0xa3be6a788ebbbb00675de7bfa4126c86993b6865)|
 
-####Strategies
+#### Strategies
 | Vault    | Strategy |     Contract Address |
 |-----------|:------------|:----------:|
 | DAIVault | StrategyStableUSD | [0x663554e2c7860b786baa19d0e5fbf0c121c25e30](https://etherscan.io/address/0x663554e2c7860b786baa19d0e5fbf0c121c25e30)|
@@ -26,7 +26,7 @@ Timelock: [0x22ef8c4b9855b0453e06a3cc6ccf314cbcea5773](https://etherscan.io/addr
 | yCRVVault | StrategyCurveYCRV | [0x1e7d5eceb33c12fc9e920d7d3179e1c4396fd2e4](https://etherscan.io/address/0x1e7d5eceb33c12fc9e920d7d3179e1c4396fd2e4)|
 
 
-##Vault 2 (Farm BAL)
+## Vault 2 (Farm BAL)
 | Vault    |      Contract Address |
 |-----------|:--------------:|
 | WETHVault | [0x127b75dd6db11d03d98592b07f761d15dec6544e](https://etherscan.io/address/0x127b75dd6db11d03d98592b07f761d15dec6544e)|
@@ -38,7 +38,7 @@ Timelock: [0x22ef8c4b9855b0453e06a3cc6ccf314cbcea5773](https://etherscan.io/addr
 | MKRVault | [0xd03457891168bf4425fdc1e17db50e69d0bd0a27](https://etherscan.io/address/0xd03457891168bf4425fdc1e17db50e69d0bd0a27)|
 | COMPVault | [0x22092e3abaa2f152f3124b6153e54eafe3fab62d](https://etherscan.io/address/0x22092e3abaa2f152f3124b6153e54eafe3fab62d)|
 
-####Strategies
+#### Strategies
 | Vault    | Strategy |     Contract Address |
 |-----------|:------------|:----------:|
 | WETHVault | StrategyBalancerPool | [0x1481dc257265731d3477fb4a421feb1d557b2729](https://etherscan.io/address/0x1481dc257265731d3477fb4a421feb1d557b2729)|
@@ -50,7 +50,7 @@ Timelock: [0x22ef8c4b9855b0453e06a3cc6ccf314cbcea5773](https://etherscan.io/addr
 | MKRVault | StrategyBalancerPool | [0x42923a3ad63e3026919325b34972b5c1f8caab4e](https://etherscan.io/address/0x42923a3ad63e3026919325b34972b5c1f8caab4e)|
 | COMPVault | StrategyBalancerPool |[0x7211fc3741012367e1336be8a967873f91de2427](https://etherscan.io/address/0x7211fc3741012367e1336be8a967873f91de2427)|
 
-####BPool Rebalancer
+#### BPool Rebalancer
 | Name    |      Contract Address |
 |-----------|:--------------:|
 | CritBPool | [0x6150d56850ce671c6c8d035ce18fc419d2611b10](https://etherscan.io/address/0x6150d56850ce671c6c8d035ce18fc419d2611b10)|
