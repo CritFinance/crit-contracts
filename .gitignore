@@ -1,1 +1,7 @@
 .idea/
+.openzeppelin/.session
+.openzeppelin
+build
+node_modules
+
+secrets.json
