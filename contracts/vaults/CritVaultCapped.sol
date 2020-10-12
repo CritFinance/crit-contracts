@@ -1,14 +1,15 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.6.2;
+pragma solidity ^0.6.12;
 
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/math/SafeMath.sol";
 import "@openzeppelin/contracts/token/ERC20/SafeERC20.sol";
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
-import "../interfaces/Controller.sol";
+import "../../interfaces/Controller.sol";
 
-contract CritVault is ERC20 {
+// One to one exchange vault. Yield will be rewarded as CRIT token.
+contract CritVaultCapped is ERC20 {
     using SafeERC20 for IERC20;
     using Address for address;
     using SafeMath for uint256;
@@ -17,6 +18,8 @@ contract CritVault is ERC20 {
 
     uint public min = 9500;
     uint public constant max = 10000;
+    uint public cap;
+    uint public capDepositAvailable = 9000;
 
     address public governance;
     address public controller;
@@ -40,10 +43,6 @@ contract CritVault is ERC20 {
         controller = _controller;
     }
 
-    function balance() public view returns (uint) {
-        return token.balanceOf(address(this))
-        .add(Controller(controller).balanceOf(address(this)));
-    }
 
     function setMin(uint _min) external onlyGovernance {
         min = _min;
@@ -57,6 +56,11 @@ contract CritVault is ERC20 {
         controller = _controller;
     }
 
+    function setCapDepositAvailable(uint _limit) external onlyGovernance {
+        require(_limit < max, 'too big');
+        capDepositAvailable = _limit;
+    }
+
     function setFeeFreeDepositTime(uint _time) external onlyGovernance {
         feeFreeDepositTime = _time;
     }
@@ -64,6 +68,10 @@ contract CritVault is ERC20 {
     function setWithdrawalFee(uint _fee) external onlyGovernance {
         require(_fee < max, 'wrong fee');
         withdrawalFee = _fee;
+    }
+
+    function balance() external view returns (uint) {
+        return totalSupply();
     }
 
     // Custom logic in here for how much the vault allows to be borrowed
@@ -83,25 +91,20 @@ contract CritVault is ERC20 {
     }
 
     function deposit(uint _amount) public {
-        uint _pool = balance();
-        uint _before = token.balanceOf(address(this));
+        require(canDeposit(), '!cap');
+        _amount = getAvailableDeposit(_amount);
+        require(_amount > 0, '!available');
         depositedAt[msg.sender] = block.timestamp;
+        uint _before = token.balanceOf(address(this));
         token.safeTransferFrom(msg.sender, address(this), _amount);
         uint _after = token.balanceOf(address(this));
         _amount = _after.sub(_before); // Additional check for deflationary tokens
-        uint shares = 0;
-        if (totalSupply() == 0) {
-            shares = _amount;
-        } else {
-            shares = (_amount.mul(totalSupply())).div(_pool);
-        }
-        _mint(msg.sender, shares);
+        _mint(msg.sender, _amount);
     }
 
     function withdrawAll() external {
         withdraw(balanceOf(msg.sender));
     }
-
 
     // Used to swap any borrowed reserve over the debt limit to liquidate to 'token'
     function harvest(address reserve, uint amount) external {
@@ -112,7 +115,7 @@ contract CritVault is ERC20 {
 
     // No rebalance implementation for lower fees and faster swaps
     function withdraw(uint _shares) public {
-        uint r = (balance().mul(_shares)).div(totalSupply());
+        uint r = _shares;
         _burn(msg.sender, _shares);
 
         // Check balance
@@ -123,6 +126,7 @@ contract CritVault is ERC20 {
             uint _after = token.balanceOf(address(this));
             uint _diff = _after.sub(b);
             if (_diff < _withdraw) {
+                // may charge withdrawal fee
                 r = b.add(_diff);
             }
         }
@@ -136,11 +140,28 @@ contract CritVault is ERC20 {
         token.safeTransfer(msg.sender, r.sub(fee));
     }
 
+    function getPricePerFullShare() public pure returns (uint) {
+        return 1e18;
+    }
+
+    function setCap(uint256 _cap) external {
+        require(msg.sender == governance, '!governance');
+        cap = _cap;
+    }
+
+    function canDeposit() public view returns(bool) {
+        return cap.mul(capDepositAvailable).div(max) > totalSupply();
+    }
+
     function isFeeFree(address account) public view returns (bool) {
         return depositedAt[account] + feeFreeDepositTime <= block.timestamp;
     }
 
-    function getPricePerFullShare() public view returns (uint) {
-        return balance().mul(1e18).div(totalSupply());
+    function getAvailableDeposit(uint _amount) public view returns(uint256) {
+        if (cap <= totalSupply()) {
+            return 0;
+        }
+        uint _available = cap - totalSupply();
+        return _available < _amount ? _available : _amount;
     }
 }

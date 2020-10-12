@@ -5,7 +5,7 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 import "../../interfaces/IUniswapV2Router02.sol";
-import "../CritVault.sol";
+import "../vaults/CritVault.sol";
 import "../../interfaces/Strategy.sol";
 import "../strategy/interfaces/IConvertor.sol";
 import "./interfaces/IReward.sol";

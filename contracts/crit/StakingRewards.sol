@@ -40,7 +40,7 @@ import "@openzeppelin/contracts/token/ERC20/SafeERC20.sol";
 import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 
 import "./RewardsDistributionRecipient.sol";
-import "./interfaces/IStakingRewards.sol";
+import "../interfaces/IStakingRewards.sol";
 import "./Pausable.sol";
 
 
