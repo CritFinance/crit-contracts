@@ -25,8 +25,35 @@ Timelock: [0x22ef8c4b9855b0453e06a3cc6ccf314cbcea5773](https://etherscan.io/addr
 | USDTVault | StrategyStableUSD | [0x60a6df3005eb9b86858251c21f83c86bba33019e](https://etherscan.io/address/0x60a6df3005eb9b86858251c21f83c86bba33019e)|
 | yCRVVault | StrategyCurveYCRV | [0x1e7d5eceb33c12fc9e920d7d3179e1c4396fd2e4](https://etherscan.io/address/0x1e7d5eceb33c12fc9e920d7d3179e1c4396fd2e4)|
 
+## Vault 2 (CRIT AMM - starts in week 2)
+| Vault    |      Contract Address |
+|-----------|:--------------:|
+| CRITVault | [0xC53d58f88C2bD99E9dBf403916620126Ee7BbB64](https://etherscan.io/address/0xC53d58f88C2bD99E9dBf403916620126Ee7BbB64)|
+| WETHVault | [0x127b75dd6db11d03d98592b07f761d15dec6544e](https://etherscan.io/address/0x127b75dd6db11d03d98592b07f761d15dec6544e)|
 
-## Vault 2 (Farm BAL)
+#### Strategies
+| Vault    | Strategy |     Contract Address |
+|-----------|:------------|:----------:|
+| CRITVault | StrategyCritAMM | [0xb4F3724efcb38819Bef914657c70A4e81Ac5aB4F](https://etherscan.io/address/0xb4F3724efcb38819Bef914657c70A4e81Ac5aB4F)|
+| WETHVault | StrategyCritAMM |[0x3d2277E4467921638DAD9Cf7432d8605a88765aa](https://etherscan.io/address/0x3d2277E4467921638DAD9Cf7432d8605a88765aa)|
+
+## CRIT Rewards
+| Pool    |      Stake Token      |  Reward Token | Reward Pool Contract Link |
+|-----------|:----------------------|--------------:|:----------------:|
+| DAI  | cDAI | CRIT | [0x57d86becbbf9b3e9208fe20e9a618b828c290d4a](https://etherscan.io/address/0x57d86becbbf9b3e9208fe20e9a618b828c290d4a) |
+| USDC  | cUSDC | CRIT | [0x5c84685ae642f3ab6fc1a735accb41e8281f28c0](https://etherscan.io/address/0x5c84685ae642f3ab6fc1a735accb41e8281f28c0) |
+| USDT  | cUSDT | CRIT | [0xdd5353c27eda3bb59b14e2b10891424f11cd5828](https://etherscan.io/address/0xdd5353c27eda3bb59b14e2b10891424f11cd5828) |
+| WETH  | cWETH | CRIT | [0x7e1053699aa8fe49316727d8d6984e991740cd44](https://etherscan.io/address/0x7e1053699aa8fe49316727d8d6984e991740cd44) |
+| CRIT  | cCRIT | CRIT | [0x557B3e9F961ded6a8AfA72aB5f03fb1a2D806260](https://etherscan.io/address/0x557B3e9F961ded6a8AfA72aB5f03fb1a2D806260) |
+| CRIT-ETH LP  | Uniswap LP Token | CRIT | [0x8997fDe643170927A5F543C6F053B5D2cC41a9f0](https://etherscan.io/address/0x8997fDe643170927A5F543C6F053B5D2cC41a9f0) |
+
+
+<br><br><br>
+---
+<br><br><br>
+
+# Inactive Contracts (Ends in Week 1) 
+### Vault 2 (Farm BAL)
 | Vault    |      Contract Address |
 |-----------|:--------------:|
 | WETHVault | [0x127b75dd6db11d03d98592b07f761d15dec6544e](https://etherscan.io/address/0x127b75dd6db11d03d98592b07f761d15dec6544e)|
