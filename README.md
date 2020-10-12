@@ -37,6 +37,13 @@ Timelock: [0x22ef8c4b9855b0453e06a3cc6ccf314cbcea5773](https://etherscan.io/addr
 | CRITVault | StrategyCritAMM | [0xb4F3724efcb38819Bef914657c70A4e81Ac5aB4F](https://etherscan.io/address/0xb4F3724efcb38819Bef914657c70A4e81Ac5aB4F)|
 | WETHVault | StrategyCritAMM |[0x3d2277E4467921638DAD9Cf7432d8605a88765aa](https://etherscan.io/address/0x3d2277E4467921638DAD9Cf7432d8605a88765aa)|
 
+### CRIT AMM Core
+| Name    |      Contract Address |
+|-----------|:--------------:|
+| CritAMM | [0x7eB5073E668677a93Cfb4b0c47dceB745bA18c6D](https://etherscan.io/address/0x7eB5073E668677a93Cfb4b0c47dceB745bA18c6D)|
+| CritAMMSimpleSignal | [0x1257D81f3E4B2862201DeA5efa2B4ce43472Ee40](https://etherscan.io/address/0x1257D81f3E4B2862201DeA5efa2B4ce43472Ee40)|
+
+
 ## CRIT Rewards
 | Pool    |      Stake Token      |  Reward Token | Reward Pool Contract Link |
 |-----------|:----------------------|--------------:|:----------------:|
